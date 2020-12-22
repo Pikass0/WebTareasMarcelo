@@ -1,9 +1,11 @@
 
 package com.tarea.services;
 
+import com.tarea.exceptions.DBException;
 import com.tarea.exceptions.UsuarioException;
 import com.tarea.model.Tarea;
 import com.tarea.model.Usuario;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -14,6 +16,7 @@ public class DB {
     private static Map<String, Set<Tarea>> tareas;  //username, tareas
     private static Set<Usuario> usuarios;
     private static int ultimoIdTarea = 0;
+    
     static{
         //inicializacion de Usuarios
         usuarios = new HashSet<>();
@@ -26,8 +29,6 @@ public class DB {
         }
         //inicializacion de Tareas
         tareas = new HashMap<>();
-        
- 
     }
     
 
@@ -44,24 +45,67 @@ public class DB {
         }
     }
 
-    public static Map<String, Set<Tarea>> getTareas() {
-        return tareas;
+    
+    //----------TAREAS---------
+    
+    public synchronized static Collection<Set<Tarea>> getAllTareas() {
+        //comprobar si funciona esto
+        return tareas.values();
+    }
+    
+    /**
+     * Buscar una tarea por ID y nombre de usuario
+     * @param idTarea id de la tarea
+     * @param username nombre del usuario
+     * @return returns Tarea if exists, null otherwise
+     */
+    public synchronized static Tarea getTarea(int idTarea, String username){
+        Tarea tarea = null;
+        return tarea;
+    }
+    
+    /**
+     * Crea tarea teniendo en cuenta el usuario
+     * @param username usuario
+     * @param descripcion descripcion de la tarea
+     */
+    public synchronized static void crearTarea(String username, String descripcion){
+        tareas.get(username).add(new Tarea(++ultimoIdTarea, descripcion));
     }
 
-    public static void setTareas(Map<String, Set<Tarea>> tareas) {
-        DB.tareas = tareas;
-    }
 
-    public static Set<Usuario> getUsuarios() {
+    
+    //----------USUARIOS---------
+    
+
+    public synchronized static Collection<Usuario> getAllUsuarios() {
         return usuarios;
     }
 
-    public static void setUsuarios(Set<Usuario> usuarios) {
-        DB.usuarios = usuarios;
+    public synchronized static void crearUsuario(Usuario user) throws DBException{
+        boolean isAdded = usuarios.add(user);
+        if (!isAdded) {
+            throw new DBException("El usuario no pudo ser añadido. El username ya existe");
+        }else{
+            //se inicializa la lista de tareas
+            tareas.put(user.getUsername(), new HashSet<Tarea>());
+        }
     }
-
-
      
+    /**
+     * Comprueba si existe un usuario
+     * @param username username to search
+     * @return returns user if it finds one in user db, null otherwise
+     */
+    public synchronized static Usuario userExists(String username){
+        //Creo que esto no me hará falta por el Set, pero por si acaso
+        for (Usuario usuario : usuarios) {
+            if ( usuario.getUsername().equals(username)) {
+                return usuario;
+            }
+        }
+        return null;
+    }
     
     
     

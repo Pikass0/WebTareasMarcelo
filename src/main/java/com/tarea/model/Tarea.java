@@ -16,6 +16,7 @@ public class Tarea {
     public Tarea(int idTarea, String descripcion) {
         this.idTarea = idTarea;
         this.descripcion = descripcion;
+        this.estado = Estado.TODO;
     }
 
     public Tarea(int idTarea, String descripcion, Estado estado) {
