@@ -1,0 +1,50 @@
+#logo{
+    width: 10%;
+    height: 10%;
+    margin-left: 35%;
+    display: inline-block;
+}
+
+#texto_titulo{
+    text-align: center;
+    color: #878787;
+    display: inline-block;
+}
+#cabecera{
+    background-color: #393f46 ;/* bg-dark color #343a40*/
+    
+}
+#usuario{
+    text-align: right;
+    color: white;
+}
+
+thead{
+    background-color: #272e35;
+    font-size: 20px;
+}
+
+/*#lista-alquiler{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}*/
+
+td button{
+    margin-left: 0px;
+}
+
+button{
+    margin-left: 45%;
+    margin-right: 45%;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: white;
+}
+
+
+.dropdown-menu {
+  background-color:#393f46 ;
+}
