@@ -10,8 +10,13 @@ public class Usuario {
 
     private String password;
     private String username;
-
-
+    
+    /**
+     * Usuario de 3 char mínimo, password de 8
+     * @param username 
+     * @param password
+     * @throws UsuarioException si no cumple los requisitos mínimos
+     */
     public Usuario( String username, String password ) throws UsuarioException {
         //obligar a que el nombre tenga al menos 3 caracteres y password 8
         if (username == null || username.trim().length() < 3 || password == null || password.length() < 8) {

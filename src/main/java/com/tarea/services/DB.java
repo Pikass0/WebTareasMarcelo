@@ -27,7 +27,7 @@ public class DB {
         } catch (UsuarioException ex) {
             System.out.println("Error al inicializar: "+ ex.getMessage());
         }
-        //inicializacion de Tareas
+        //inicializacion de Tareas (cada usuario tiene lista de tareas)
         tareas = new HashMap<>();
     }
     
@@ -73,8 +73,6 @@ public class DB {
         tareas.get(username).add(new Tarea(++ultimoIdTarea, descripcion));
     }
 
-
-    
     //----------USUARIOS---------
     
 
@@ -87,7 +85,7 @@ public class DB {
         if (!isAdded) {
             throw new DBException("El usuario no pudo ser añadido. El username ya existe");
         }else{
-            //se inicializa la lista de tareas
+            //se inicializa su lista de tareas
             tareas.put(user.getUsername(), new HashSet<Tarea>());
         }
     }
@@ -95,7 +93,7 @@ public class DB {
     /**
      * Comprueba si existe un usuario
      * @param username username to search
-     * @return returns user if it finds one in user db, null otherwise
+     * @return returns user if it finds one, null otherwise
      */
     public synchronized static Usuario userExists(String username){
         //Creo que esto no me hará falta por el Set, pero por si acaso

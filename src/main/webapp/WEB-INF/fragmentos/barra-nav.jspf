@@ -1,0 +1,30 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item " >
+      <a class="nav-link" href="index.jsp">Inicio</a>
+    </li>
+ 
+    <c:if test="${sessionScope.usuario != null}">
+        <!--Mostrar estas opciones solo si estas logueado-->
+        <li class="nav-item">
+          <a class="nav-link" href="tablero.jsp">Tablero</a>
+        </li>
+    
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Cuenta
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="personalizar.jsp">Personalizar</a>
+          <a class="dropdown-item" href="ajustes.jsp">Ajustes</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="logout">Logout</a>
+        </div>
+      </li>
+    </c:if>
+  </ul>
+</nav>
+

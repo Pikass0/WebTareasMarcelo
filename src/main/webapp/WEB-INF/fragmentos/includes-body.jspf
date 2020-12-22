@@ -1,0 +1,3 @@
+
+<%@include file="../fragmentos/cabecera.jspf" %>
+<%@include file="../fragmentos/barra-nav.jspf" %>

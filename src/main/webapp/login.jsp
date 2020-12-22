@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 22-dic-2020, 10:16:59
+    Document   : login
+    Created on : 22-dic-2020, 12:53:13
     Author     : user
 --%>
 
@@ -10,12 +10,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inicio</title>
+        <title>Login</title>
         <%@include file="WEB-INF/fragmentos/includes.jspf" %>
     </head>
     <body>
         <%@include file="WEB-INF/fragmentos/includes-body.jspf" %>
-<!--        Trello: https://trello.com/b/FpZP6u2K/tareas-navidad-->
-        <h1>Inicio</h1>
+        <h1>Login</h1>
     </body>
 </html>
