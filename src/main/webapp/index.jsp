@@ -12,6 +12,7 @@
         <title>Inicio</title>
     </head>
     <body>
+<!--        Trello: https://trello.com/b/FpZP6u2K/tareas-navidad-->
         <h1>Inicio</h1>
     </body>
 </html>

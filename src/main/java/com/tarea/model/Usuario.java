@@ -13,8 +13,8 @@ public class Usuario {
 
 
     public Usuario( String username, String password ) throws UsuarioException {
-        //obligar a que el nombre tenga al menos 5 caracteres y password 8
-        if (username == null || username.trim().length() < 5 || password == null || password.length() < 8) {
+        //obligar a que el nombre tenga al menos 3 caracteres y password 8
+        if (username == null || username.trim().length() < 3 || password == null || password.length() < 8) {
             //no sé si esta bien poner una exception en un constructor
             throw new UsuarioException("Error al crear usuario. Compruebe el username y contraseña.");
         }
