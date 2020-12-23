@@ -3,6 +3,7 @@ package com.tarea.services;
 
 import com.tarea.exceptions.DBException;
 import com.tarea.exceptions.UsuarioException;
+import com.tarea.model.Estado;
 import com.tarea.model.Tarea;
 import com.tarea.model.Usuario;
 import java.util.Collection;
@@ -35,7 +36,7 @@ public class DB {
             tareas.put(user.getUsername(), new HashSet<Tarea>());
             //metemos tareas en el set
             tareas.get(user.getUsername()).add(new Tarea(++ultimoIdTarea, "Comprar pan"));
-            tareas.get(user.getUsername()).add(new Tarea(++ultimoIdTarea, "Comprar leche"));
+            tareas.get(user.getUsername()).add(new Tarea(++ultimoIdTarea, "Comprar leche", Estado.IN_PROGRESS));
             tareas.get(user.getUsername()).add(new Tarea(++ultimoIdTarea, "Comprar 4 naranjas"));
         }
     }

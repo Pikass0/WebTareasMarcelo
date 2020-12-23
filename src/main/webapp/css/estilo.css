@@ -20,8 +20,11 @@
     margin-top: 3%;
 }
 
-.botones{
-    align-items: center;
+.btn-der{
+    /*background: url(../img/der.png );*/
+}
+.btn-izq{
+    /*background: url( );*/
 }
 
 #usuario{

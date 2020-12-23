@@ -10,7 +10,7 @@
     <c:if test="${sessionScope.usuario != null}">
         <!--Mostrar estas opciones solo si estas logueado-->
         <li class="nav-item">
-          <a class="nav-link" href="tablero.jsp">Tablero</a>
+          <a class="nav-link" href="tablero">Tablero</a>
         </li>
 
         <li class="nav-item dropdown">
