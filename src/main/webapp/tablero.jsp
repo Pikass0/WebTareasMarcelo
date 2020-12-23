@@ -14,6 +14,55 @@
     </head>
     <body>
         <%@include file="WEB-INF/fragmentos/includes-body.jspf" %>
-        <h1>Tus notas....</h1>
+        
+        <div class="container" id="tablero">
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col">
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header">To Do</div>
+                            <div class="card-body ">
+                                <ul class="list-group list-group-flush ">
+                                    <li class="list-group-item list-group-item-dark">Cras justo odio</li>
+                                    <li class="list-group-item list-group-item-dark">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item list-group-item-dark">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header">
+                                In progress
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item list-group-item-dark">Cras justo odio</li>
+                                    <li class="list-group-item list-group-item-dark">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item list-group-item-dark">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header">
+                                Done
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item list-group-item-dark">Cras justo odio</li>
+                                    <li class="list-group-item list-group-item-dark">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item list-group-item-dark">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
+    <!--<script src="js/arrastrar.js" type="text/javascript"></script>-->
+
 </html>
