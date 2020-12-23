@@ -22,16 +22,21 @@
                     <h1>Introduce los datos de Acceso</h1>
                 </div>
             </div>
+            <c:if test="${not empty requestScope.mensaje }" >
+                <div class="alert alert-danger" role="alert">
+                    ${requestScope.mensaje}
+                </div>
+            </c:if>
             <form action="login" method="post">
                 <div class="form-group">
                     <label for="user">Usuario</label>
                     <input type="text" class="form-control" name="user"
-                           id="email" placeholder="Introduce usuario...">
+                           id="user" placeholder="Introduce usuario...">
                 </div>
                 <div class="form-group">
                     <label for="password">Contraseña</label>
                     <input type="password" class="form-control" name="password"
-                           id="pwd" placeholder="Contraseña...">
+                           id="password" placeholder="Contraseña...">
                 </div>
                 <div class="btn-group" role="group">
                     <a href="form-alta-usuario.jsp" class="btn btn-primary">Registrar</a>   

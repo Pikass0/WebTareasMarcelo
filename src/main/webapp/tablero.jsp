@@ -9,9 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@include file="WEB-INF/fragmentos/includes.jspf" %>
         <title>Tablero</title>
     </head>
     <body>
+        <%@include file="WEB-INF/fragmentos/includes-body.jspf" %>
         <h1>Tus notas....</h1>
     </body>
 </html>

@@ -9,7 +9,7 @@
             <c:choose>
                 <c:when  test="${sessionScope.usuario != null}">
                     <a href="logout">Logout</a>
-                    Usuario: ${sessionScope.usuario.email}
+                    Usuario: ${sessionScope.usuario.username}
                 </c:when>
                     <c:otherwise>
                         <a href="login.jsp">Login</a>
