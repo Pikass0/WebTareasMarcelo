@@ -29,12 +29,7 @@ public class DB {
         }
         //inicializacion de Tareas (cada usuario tiene lista de tareas)
         tareas = new HashMap<>();
-    }
-    
-
-    //para que nadie haga new
-    private DB() {
-        //inicializar tareas (los 3 usuarios test van a tener las mismas tareas, pero con distinto id (solo es igual la desc))
+        //poblar el Set de tareas
         for (Usuario user : usuarios) {
             //inicializamos el set tareas
             tareas.put(user.getUsername(), new HashSet<Tarea>());
@@ -43,6 +38,11 @@ public class DB {
             tareas.get(user.getUsername()).add(new Tarea(++ultimoIdTarea, "Comprar leche"));
             tareas.get(user.getUsername()).add(new Tarea(++ultimoIdTarea, "Comprar 4 naranjas"));
         }
+    }
+    
+
+    //private para que nadie haga new
+    private DB() {
     }
 
     
@@ -63,6 +63,17 @@ public class DB {
         Tarea tarea = null;
         return tarea;
     }
+    /**
+     * Get all Tareas using Username as key
+     * @param username 
+     * @return returns Collection of user's tareas
+     */
+    
+    public synchronized static Collection<Tarea> getTareasUsuario(String username){
+        
+        return tareas.get(username);
+    }
+    
     
     /**
      * Crea tarea teniendo en cuenta el usuario

@@ -4,6 +4,9 @@
     Author     : user
 --%>
 
+<%@page import="com.tarea.model.Tarea"%>
+<%@page import="java.util.Collection"%>
+<%@page import="com.tarea.services.DB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +18,12 @@
     <body>
         <%@include file="WEB-INF/fragmentos/includes-body.jspf" %>
         algun dia pondré bien los botones
+        <c:if test="${sessionScope.usuario == null}">
+                <div class="aler alert-danger" role="alert">
+                    No te has logueado (en un futuro mandarle al login y que no pueda meterse aqui)
+                </div>
+        </c:if>
+
         <div class="container" id="tablero">
             <div class="jumbotron">
                 <div class="row">
@@ -24,10 +33,9 @@
                             <div class="card-header">To Do</div>
                             <div class="card-body ">
                                 <div class="list-group list-group-flush"  id="todo" role="tablist">
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list"  >Home</a>
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list" >Profile</a>
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list" >Messages</a>
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list">Settings</a>
+                                    <c:forEach var="tarea" items="${sessionScope.todo}"> 
+                                        <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list">${tarea.descripcion}</a>
+                                    </c:forEach> 
                                 </div>
                             </div>
                         </div>
@@ -47,10 +55,9 @@
                             </div>
                             <div class="card-body">
                                 <div class="list-group list-group-flush"  id="todo" role="tablist">
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list"  >Home</a>
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list" >Profile</a>
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list" >Messages</a>
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list">Settings</a>
+                                   <c:forEach var="tarea" items="${sessionScope.progress}"> 
+                                        <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list">${tarea.descripcion}</a>
+                                    </c:forEach> 
                                 </div>
                             </div>
                         </div>
@@ -69,11 +76,10 @@
                                 Done
                             </div>
                             <div class="card-body">
-                                <div class="list-group list-group-flush"  id="todo" role="tablist">
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list"  >Home</a>
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list" >Profile</a>
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list" >Messages</a>
-                                    <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list">Settings</a>
+                                <div class="list-group list-group-flush"  id="todo" role="tablist"> 
+                                <c:forEach var="tarea" items="${sessionScope.done}"> 
+                                        <a class="list-group-item list-group-item-dark list-group-item-action" data-toggle="list">${tarea.descripcion}</a>
+                                    </c:forEach> 
                                 </div>
                             </div>
                         </div>
@@ -84,7 +90,4 @@
 
     </body>
     <!--<script src="js/arrastrar.js" type="text/javascript"></script>-->
-    <script>
-
-    </script>
 </html>
