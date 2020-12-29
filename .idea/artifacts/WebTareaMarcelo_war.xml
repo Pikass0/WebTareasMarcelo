@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WebTareaMarcelo:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>WebTareaMarcelo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="WebTareaMarcelo-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="WebTareaMarcelo:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -31,6 +31,9 @@
     text-align: right;
     color: white;
 }
+#usuario a{
+    color: #272e35;
+}
 
 thead{
     background-color: #272e35;

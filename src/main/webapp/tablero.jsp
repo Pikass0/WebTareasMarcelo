@@ -33,9 +33,10 @@
                             <div class="card-header">To Do</div>
                             <div class="card-body ">
                                 <div class="list-group list-group-flush" id="todo"  role="tablist">
-                                    <c:forEach var="tarea" items="${requestScope.todo}"> 
-                                        <a class="list-group-item list-group-item-dark list-group-item-action" href="#idTarea=${tarea.idTarea}" data-toggle="list">${tarea.descripcion}</a>
-                                    </c:forEach> 
+                                    <c:forEach var="tarea" items="${requestScope.todo}">
+                                        <a class="list-group-item list-group-item-dark list-group-item-action"
+                                           href="#idTarea=${tarea.idTarea}" data-toggle="list">${tarea.descripcion}</a>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
@@ -43,8 +44,8 @@
                     <!--BOTONES TODO-PROGRESS-->
                     <div class="col-auto d-flex flex-column">
                         <div class="btn-group-vertical" role="group" aria-label="Button group">
-                            <input type="button" onclick="todoProgress()" class="btn btn-secondary btn-der" value=">" />
-                            <input type="button" onclick="progressTodo()" class="btn btn-secondary btn-izq" value="<"/>
+                            <input type="button" onclick="mover('todo_progress');" class="btn btn-secondary btn-der" value=">" />
+                            <input type="button" onclick="mover('progress_todo');" class="btn btn-secondary btn-izq" value="<"/>
                         </div>
                     </div>
                     <!--IN PROGRESS-->
@@ -56,7 +57,8 @@
                             <div class="card-body">
                                 <div class="list-group list-group-flush" id="progress" role="tablist">
                                     <c:forEach var="tarea" items="${requestScope.progress}"> 
-                                        <a class="list-group-item list-group-item-dark list-group-item-action" href="#idTarea=${tarea.idTarea}"   data-toggle="list">${tarea.descripcion}</a>
+                                        <a class="list-group-item list-group-item-dark list-group-item-action"
+                                           href="#idTarea=${tarea.idTarea}"   data-toggle="list">${tarea.descripcion}</a>
                                     </c:forEach> 
                                 </div>
                             </div>
@@ -78,7 +80,8 @@
                             <div class="card-body">
                                 <div class="list-group list-group-flush" id="done" role="tablist"> 
                                     <c:forEach var="tarea" items="${requestScope.done}"> 
-                                        <a class="list-group-item list-group-item-dark list-group-item-action" href="tablero?tabla=done&idTarea=${tarea.idTarea}" data-toggle="list">${tarea.descripcion}</a>
+                                        <a class="list-group-item list-group-item-dark list-group-item-action"
+                                           href="tablero?tabla=done&idTarea=${tarea.idTarea}" data-toggle="list">${tarea.descripcion}</a>
                                     </c:forEach> 
                                 </div>
                             </div>
@@ -100,21 +103,26 @@
 
         })
         
-        function todoProgress() {
-           var tareas = document.querySelector('#todo');
-           //mejor for each pero bueno, no se js
-           for (i = 0; i < tareas.length; ++i) {
-               if (tareas[i].hasClass('active')) {
-                   alert(i);
-                   //intentar mostrar el ID
-               } 
-           }
-           alert('nada');
-        }
-        
-        function progressTodo() {
+        function mover(tabla) {
+            //tabla tendra el valor string de una constante diciendo a que tablero tiene que mover
+            //EJ.: todo_progress. progress_todo (aun no existen las constantes, por ahora vars)
+
+            //por ahora intento hacer solo de todo a progress
+            var tareas = document.querySelectorAll('#todo a');
+            //mejor for each pero bueno, no se js
+            for (i = 0; i < tareas.length; ++i) {
+                if (tareas[i].classList.contains('active')) {
+                    //si está seleccionado...
+
+                }
+            }
 
         }
+
+        function getItemList(tarea) {
+            alert(tarea);
+        }
+
 
     </script>
 </html>
