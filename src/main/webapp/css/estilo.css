@@ -39,6 +39,9 @@ thead{
     background-color: #272e35;
     font-size: 20px;
 }
+.hidden-id{
+    display:none;
+}
 
 /*#lista-alquiler{
     width: 50%;

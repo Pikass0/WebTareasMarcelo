@@ -6,6 +6,8 @@ import com.tarea.exceptions.UsuarioException;
 import com.tarea.model.Estado;
 import com.tarea.model.Tarea;
 import com.tarea.model.Usuario;
+import jdk.nashorn.internal.objects.NativeArray;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -61,8 +63,13 @@ public class DB {
      * @return returns Tarea if exists, null otherwise
      */
     public synchronized static Tarea getTarea(int idTarea, String username){
-        Tarea tarea = null;
-        return tarea;
+        //busca en la lista de tareas de ese usuario
+        for (Tarea tarea : tareas.get(username)){
+           if (tarea.getIdTarea() == idTarea){
+               return tarea;
+           }
+        }
+        return null;
     }
     /**
      * Get all Tareas using Username as key

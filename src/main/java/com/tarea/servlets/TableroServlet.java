@@ -5,6 +5,7 @@
  */
 package com.tarea.servlets;
 
+import com.tarea.model.Estado;
 import com.tarea.model.Tarea;
 import com.tarea.model.Usuario;
 import com.tarea.services.DB;
@@ -20,39 +21,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author user
- */
+
 @WebServlet(name = "TableroServlet", urlPatterns = {"/tablero"})
 public class TableroServlet extends HttpServlet {
 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //por el get pasa cuando carga la pagina
+        String jspAMostrar="login.jsp";
         Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
-        String jspAMostrar = "";
-        if (usuario==null) {
+        if (usuario==null){
             req.setAttribute("mensaje", "Necesita loguearse");
-            jspAMostrar = "login.jsp";
         }
-        else if(req.getParameter("idTarea") != null){
+        else if(req.getParameter("id") != null){
             //Si esta moviendo una tarea
-            Tarea tarea = DB.getTarea(Integer.parseInt(req.getParameter("idTarea")), usuario.getUsername());
+
+            String sid = req.getParameter("id");
+            int id = Integer.parseInt(sid);
+            Tarea tarea = DB.getTarea(id, usuario.getUsername());;
+
+            //a que tabla mover
             switch (req.getParameter("tabla")) {
                 case "todo":
-                    
+                    tarea.setEstado(Estado.TODO);
                     break;
                 case "progress":
-                    
+                    tarea.setEstado(Estado.IN_PROGRESS);
                     break;
                 case "done":
-                    
+                    tarea.setEstado(Estado.DONE);
                     break;
-
             }
-            
-            
+            resp.sendRedirect("tablero");
+            return;
         }else{
             //si esta recargando la pagina entera
             //meter todas sus tareas en atributo
@@ -81,15 +82,23 @@ public class TableroServlet extends HttpServlet {
             req.setAttribute("done", cDone);
         
             jspAMostrar = "tablero.jsp";
+
+
         }
 
         //despachar
 
         RequestDispatcher rd = req.getRequestDispatcher(jspAMostrar);
+
         rd.forward(req, resp);    
             
     }
 
-    
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //queria hacer por aqui lo de mover tarea
+
+    }
 
 }
