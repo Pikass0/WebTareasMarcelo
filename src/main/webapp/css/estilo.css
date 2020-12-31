@@ -34,13 +34,19 @@
 #usuario a{
     color: #272e35;
 }
-
+.dropdown-item{
+    color: white;
+}
 thead{
     background-color: #272e35;
     font-size: 20px;
 }
 .hidden-id{
     display:none;
+}
+.btn-group-vertical.center {
+    /*centra verticalmente*/
+    margin: auto;
 }
 
 /*#lista-alquiler{
@@ -58,10 +64,11 @@ button{
     margin-right: 45%;
 }
 
-a, a:link, a:visited, a:hover, a:active {
+a:link, a:visited, a:hover, a:active {
     text-decoration: none;
-    color: white;
+
 }
+
 
 
 .dropdown-menu {

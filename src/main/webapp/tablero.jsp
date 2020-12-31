@@ -17,7 +17,6 @@
     </head>
     <body>
         <%@include file="WEB-INF/fragmentos/includes-body.jspf" %>
-        algun dia pondré bien los botones
         <c:if test="${sessionScope.usuario == null}">
             <div class="aler alert-danger" role="alert">
                 No te has logueado (en un futuro mandarle al login y que no pueda meterse aqui)
@@ -43,7 +42,7 @@
                     </div>
                     <!--BOTONES TODO-PROGRESS-->
                     <div class="col-auto d-flex flex-column">
-                        <div class="btn-group-vertical" role="group" aria-label="Button group">
+                        <div class="btn-group-vertical center" role="group" aria-label="Button group">
                             <input type="button" onclick="mover('todo','progress');" class="btn btn-secondary btn-der" value=">" />
                             <input type="button" onclick="mover('progress','todo');" class="btn btn-secondary btn-izq" value="<"/>
                         </div>
@@ -66,9 +65,9 @@
                     </div>
                     <!--BOTONES IN PROGRESS-DONE-->
                     <div class="col-auto d-flex flex-column">
-                        <div class="btn-group-vertical" role="group" aria-label="Button group">
-                            <button type="button" onclick="mover('progress','done');" class="btn btn-secondary">></button>
-                            <button type="button" onclick="mover('done','progress');" class="btn btn-secondary"><</button>
+                        <div class="btn-group-vertical center" role="group" aria-label="Button group">
+                            <input type="button" onclick="mover('progress','done');" class="btn btn-secondary btn-der" value=">"/>
+                            <input type="button" onclick="mover('done','progress');" class="btn btn-secondary btn-izq" value="<"/>
                         </div>
                     </div>
                     <!--DONE-->
