@@ -33,11 +33,11 @@ public class CrearTareaServlet extends HttpServlet {
 
         if (user != null && desc.trim().length() > 0) {
             DB.crearTarea(user.getUsername(), desc);
-            //mensaje successful
+            //mensaje successful (puede que los meta en "mensaje" y ya, no se)
             req.setAttribute("mensajeS", "Tarea creada"); 
         }else{
             //mensaje error
-            req.setAttribute("mensajeE", "No se pudo crear la tarea."); 
+            req.setAttribute("mensajeE", "No se pudo crear la tarea.");
         }
 
         //redireccionar no funciona, puede que por modal??

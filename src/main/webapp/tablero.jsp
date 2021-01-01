@@ -110,13 +110,16 @@
                 </div>
             </div>
         </div><%--fin tablero--%>
-<%--    Botones crear eliminar y archivar--%>
+<%--    Controles: crear, eliminar y archivar--%>
         <div class="jumbotron d-flex justify-content-center" id="controles">
-            <input id="btn-crear" type="button" data-toggle="modal" data-target="#modalCrear" class="btn btn-secondary" value="crear"/>
-            <input id="btn-eliminar" type="button" data-toggle="modal" data-target="#modalEliminar" class="btn btn-secondary"/>
-            <input id="btn-archivar" type="button" href="archivar-tarea" class="btn btn-secondary"/>
+            <input id="btn-crear" type="button"  data-hover="tooltip" data-html="true" title="<b>Crear tarea</b>"
+                   data-toggle="modal" data-target="#modalCrear" class="btn shadow-none"/>
+            <input id="btn-eliminar" type="button" data-hover="tooltip" data-html="true" title="<b>Eliminar tarea</b>"
+                   data-toggle="modal" data-target="#modalEliminar" class="btn shadow-none"/>
+            <input id="btn-archivar" type="button" data-hover="tooltip" data-html="true" title="<b>Archivar tarea</b>"
+                   href="archivar-tarea" class="btn shadow-none"/>
         </div>
-        </div>
+    </div>
 
 
     <!-- Modal Crear-->
@@ -153,6 +156,12 @@
     </body>
     <!--<script src="js/arrastrar.js" type="text/javascript"></script>-->
     <script>
+        //activar tooltips de bootstrap (he tenido que añadir libreria)
+        $(function () {
+            //(data-hover  he creoyo)
+            $('[data-hover="tooltip"]').tooltip();
+        })
+
         // lo dejamos para un futuro (quiero que si clica una tarea marcada, se desmarque)
         //lo necesito para eliminar/archivar tareas...
         $('#tablero a ').on('click', function () {
