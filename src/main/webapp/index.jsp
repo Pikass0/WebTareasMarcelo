@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inicio</title>
+        <title>Inicio...</title>
         <%@include file="WEB-INF/fragmentos/includes.jspf" %>
     </head>
     <body>
