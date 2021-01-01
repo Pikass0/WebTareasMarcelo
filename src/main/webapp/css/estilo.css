@@ -21,14 +21,36 @@
 }
 
 .btn-der{
-    background:url(../img/der.png) no-repeat center;
-    background-color: #272e35;
+    background: #272e35 url(../img/der.png) no-repeat center;
 }
 .btn-izq{
-    background:url(../img/izq.png) no-repeat center;
-    background-color: #393f46;
+    background: #393f46 url(../img/izq.png) no-repeat center;
+}
+#controles{
+
 }
 
+#btn-crear{
+    background:url(../img/note.png) no-repeat center;
+    color:black;
+    margin: auto;
+    width: 64px;
+    height: 64px;
+}
+
+#btn-eliminar{
+    background:url(../img/delete.png) no-repeat center;
+    width: 64px;
+    height: 64px;
+    margin: auto;
+}
+
+#btn-archivar{
+    background:url(../img/folder.png) no-repeat center;
+    width: 64px;
+    height: 64px;
+    margin: auto;
+}
 #usuario{
     text-align: right;
     color: white;

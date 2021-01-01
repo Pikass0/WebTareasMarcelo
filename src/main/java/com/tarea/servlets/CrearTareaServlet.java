@@ -26,14 +26,12 @@ import javax.servlet.http.HttpServletResponse;
 public class CrearTareaServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         String desc = req.getParameter("desc");
         Usuario user = (Usuario) req.getSession().getAttribute("usuario");
-        
-        RequestDispatcher rd;
-        
-        if (user != null || desc.trim().length() > 0) {
+
+        if (user != null && desc.trim().length() > 0) {
             DB.crearTarea(user.getUsername(), desc);
             //mensaje successful
             req.setAttribute("mensajeS", "Tarea creada"); 
@@ -41,12 +39,11 @@ public class CrearTareaServlet extends HttpServlet {
             //mensaje error
             req.setAttribute("mensajeE", "No se pudo crear la tarea."); 
         }
-        
-        rd = req.getRequestDispatcher("tablero.jsp");
-              
-        //despachar al jsp
-        
-        rd.forward(req, resp);
+
+        //redireccionar no funciona, puede que por modal??
+        resp.sendRedirect("tablero");
+
+
         
     }
     
