@@ -43,8 +43,8 @@
                     <!--BOTONES TODO-PROGRESS-->
                     <div class="col-auto d-flex flex-column">
                         <div class="btn-group-vertical center" role="group" aria-label="Button group">
-                            <input type="button" onclick="mover('todo','progress');" class="btn btn-secondary btn-der" value=">" />
-                            <input type="button" onclick="mover('progress','todo');" class="btn btn-secondary btn-izq" value="<"/>
+                            <input type="button" onclick="mover('todo','progress');" class="btn btn-secondary btn-der"  />
+                            <input type="button" onclick="mover('progress','todo');" class="btn btn-secondary btn-izq" />
                         </div>
                     </div>
                     <!--IN PROGRESS-->
@@ -66,8 +66,8 @@
                     <!--BOTONES IN PROGRESS-DONE-->
                     <div class="col-auto d-flex flex-column">
                         <div class="btn-group-vertical center" role="group" aria-label="Button group">
-                            <input type="button" onclick="mover('progress','done');" class="btn btn-secondary btn-der" value=">"/>
-                            <input type="button" onclick="mover('done','progress');" class="btn btn-secondary btn-izq" value="<"/>
+                            <input type="button" onclick="mover('progress','done');" class="btn btn-secondary btn-der" />
+                            <input type="button" onclick="mover('done','progress');" class="btn btn-secondary btn-izq"/>
                         </div>
                     </div>
                     <!--DONE-->

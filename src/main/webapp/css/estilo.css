@@ -21,10 +21,12 @@
 }
 
 .btn-der{
-    /*background: url(../img/der.png );*/
+    background:url(../img/der.png) no-repeat center;
+    background-color: #272e35;
 }
 .btn-izq{
-    /*background: url( );*/
+    background:url(../img/izq.png) no-repeat center;
+    background-color: #393f46;
 }
 
 #usuario{
