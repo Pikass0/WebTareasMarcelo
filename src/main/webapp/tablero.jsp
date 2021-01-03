@@ -115,7 +115,7 @@
             <input id="btn-crear" type="button"  data-hover="tooltip" data-html="true" title="<b>Crear tarea</b>"
                    data-toggle="modal" data-target="#modalCrear" class="btn shadow-none"/>
             <input id="btn-eliminar" type="button" data-hover="tooltip" data-html="true" title="<b>Eliminar tarea</b>"
-                   data-toggle="modal" data-target="#modalEliminar" class="btn shadow-none"/>
+                   href="archivar-tarea" class="btn shadow-none"/>
             <input id="btn-archivar" type="button" data-hover="tooltip" data-html="true" title="<b>Archivar tarea</b>"
                    href="archivar-tarea" class="btn shadow-none"/>
         </div>
@@ -136,7 +136,8 @@
                     <form action ="crear-tarea">
                         <div class="form-group">
                             <label for="desc">Descripción</label>
-                            <input type="text" class="form-control" id="desc" name="desc" aria-describedby="emailHelp" placeholder="Comprar leche">
+                            <input type="text" class="form-control" id="desc" name="desc" aria-describedby="emailHelp"
+                                   placeholder="Comprar leche" required>
                             <small class="form-text text-muted">Límite de caracteres: 30</small>
                         </div>
                         <button type="submit" class="btn btn-success" >Crear</button>
@@ -149,6 +150,8 @@
             </div>
         </div>
     </div>
+
+
 
     </div>
     <%--fin container--%>
@@ -164,13 +167,19 @@
 
         // lo dejamos para un futuro (quiero que si clica una tarea marcada, se desmarque)
         //lo necesito para eliminar/archivar tareas...
-        $('#tablero a ').on('click', function () {
+        /*$('#tablero a ').on('click', function () {
             // var tareas = document.getElementById("list-group").getElementsByTagName("a");
             if ($(this).hasClass('active')) {
-                $(this).remove('active');
+                $(this).removeClass('active');
                 // no se por que no funciona eso pero bueno, llegar llega aqui
             }
 
+        })*/
+
+        //temporal: solo deja seleccionar un item de lista, para no tener problemas al eliminar
+        $('#tablero a ').on('click', function () {
+            $("#tablero a").removeClass("active");
+            $(this).classList.add('active')
         })
 
 

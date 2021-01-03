@@ -40,7 +40,7 @@ public class CrearTareaServlet extends HttpServlet {
             req.setAttribute("mensajeE", "No se pudo crear la tarea.");
         }
 
-        //redireccionar no funciona, puede que por modal??
+        //redireccionar
         resp.sendRedirect("tablero");
 
 
