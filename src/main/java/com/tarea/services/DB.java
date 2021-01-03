@@ -92,6 +92,22 @@ public class DB {
         tareas.get(username).add(new Tarea(++ultimoIdTarea, descripcion));
     }
 
+    /**
+     * Eliminar tarea(s)
+     * @param username usuario
+     * @param ids ids de las tareas
+     */
+    public synchronized static void eliminarTarea(String username, int...ids){
+        //por cada tarea de ese usuario...
+        for (Tarea tarea : tareas.get(username))
+            for (int id : ids){
+                //eliminar las seleccionadas
+                if (tarea.getIdTarea() == id){
+                    tareas.get(username).remove(tarea);
+                }
+            }
+
+    }
     //----------USUARIOS---------
     
 

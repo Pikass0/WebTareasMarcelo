@@ -49,7 +49,7 @@
                                     <a class="list-group-item list-group-item-dark list-group-item-action"
                                        onclick="activar(this)"
                                        data-toggle="list">
-                                        <div class="hidden-id">${tarea.idTarea} </div>
+                                        <div class="hidden-id">${tarea.idTarea}</div>
                                             ${tarea.descripcion}</a>
                                 </c:forEach>
                             </div>
@@ -75,7 +75,7 @@
                                     <a class="list-group-item list-group-item-dark list-group-item-action"
                                        onclick="activar()"
                                        data-toggle="list">
-                                        <div class="hidden-id">${tarea.idTarea} </div>
+                                        <div class="hidden-id">${tarea.idTarea}</div>
                                             ${tarea.descripcion}</a>
                                 </c:forEach>
                             </div>
@@ -101,7 +101,7 @@
                                     <a class="list-group-item list-group-item-dark list-group-item-action"
                                        onclick="activar()"
                                        data-toggle="list">
-                                        <div class="hidden-id">${tarea.idTarea} </div>
+                                        <div class="hidden-id">${tarea.idTarea}</div>
                                             ${tarea.descripcion}</a>
                                 </c:forEach>
                             </div>
@@ -115,7 +115,7 @@
             <input id="btn-crear" type="button"  data-hover="tooltip" data-html="true" title="<b>Crear tarea</b>"
                    data-toggle="modal" data-target="#modalCrear" class="btn shadow-none"/>
             <input id="btn-eliminar" type="button" data-hover="tooltip" data-html="true" title="<b>Eliminar tarea</b>"
-                   href="archivar-tarea" class="btn shadow-none"/>
+                   data-toggle="modal" data-target="#modalEliminar" class="btn shadow-none"/>
             <input id="btn-archivar" type="button" data-hover="tooltip" data-html="true" title="<b>Archivar tarea</b>"
                    href="archivar-tarea" class="btn shadow-none"/>
         </div>
@@ -152,6 +152,27 @@
     </div>
 
 
+    <!-- Modal Eliminar-->
+    <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEliminarLabel">Eliminar Tarea</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" onclick="eliminar();" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     </div>
     <%--fin container--%>
@@ -183,19 +204,32 @@
         })
 
 
+        function eliminar(){
+            var tareas = document.querySelectorAll('#tablero  a');
+            tareas.forEach(tarea => {
+                if (tarea.classList.contains('active')) {
+                    //si está seleccionado coge el id escondido en div
+                    var id = tarea.querySelector('.hidden-id').innerHTML;
+                    //llama al servlet
+                    document.location.href = "eliminar-tarea?id=" + id;
+
+                }
+            })
+        }
+
         function mover(tabla, tablaDestino) {
             var tareas = document.querySelectorAll('#' + tabla + ' a');
             tareas.forEach(tarea => {
                 if (tarea.classList.contains('active')) {
                     //si está seleccionado coge el id escondido en div
                     var id = tarea.querySelector('.hidden-id').innerHTML;
-                    llamarServlet(id, tablaDestino);
+                    llamarTableroServlet(id, tablaDestino);
                     // break; no deja break
                 }
             })
         }
 
-        function llamarServlet(id, tablaDestino) {
+        function llamarTableroServlet(id, tablaDestino) {
             id = id.trim();
             document.location.href = "tablero?id=" + id + "&tabla=" + tablaDestino;
         }
