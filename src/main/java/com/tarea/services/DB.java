@@ -16,7 +16,7 @@ import java.util.Set;
 
 
 public class DB {
-    private static Map<String, Set<Tarea>> tareas;  //username, tareas
+    private static Map<String, Set<Tarea>> tareas;  //Key: username
     private static Set<Usuario> usuarios;
     private static int ultimoIdTarea = 0;
     
@@ -73,8 +73,8 @@ public class DB {
     }
     /**
      * Get all Tareas using Username as key
-     * @param username 
-     * @return returns Collection of user's tareas
+     * @param username usuario
+     * @return devuelve todas las tareas de ese usuario
      */
     
     public synchronized static Collection<Tarea> getTareasUsuario(String username){
@@ -116,12 +116,11 @@ public class DB {
     }
 
     public synchronized static void crearUsuario(Usuario user) throws DBException{
-        boolean isAdded = usuarios.add(user);
-        if (!isAdded) {
-            throw new DBException("El usuario no pudo ser añadido. El username ya existe");
-        }else{
+        if (usuarios.add(user)) {
             //se inicializa su lista de tareas
             tareas.put(user.getUsername(), new HashSet<Tarea>());
+        }else{
+            throw new DBException("El usuario no pudo ser añadido. El username ya existe");
         }
     }
      

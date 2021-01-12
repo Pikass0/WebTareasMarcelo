@@ -3,6 +3,7 @@ package com.tarea.servlets;
 import com.tarea.model.Usuario;
 import com.tarea.services.DB;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +25,7 @@ public class EliminarTareaServlet extends HttpServlet {
             if (user != null && id > 0) {
                 DB.eliminarTarea(user.getUsername(), id);
                 //mensaje successful (puede que los meta en "mensaje" y ya, no se)
-                req.setAttribute("mensajeS", "Tarea eliminar");
+                req.setAttribute("mensajeS", "Tarea eliminada");
             }else{
                 //mensaje error
                 req.setAttribute("mensajeE", "No se pudo eliminar la tarea.");
@@ -36,7 +37,12 @@ public class EliminarTareaServlet extends HttpServlet {
 
         //redireccionar
         resp.sendRedirect("tablero");
+
+
+
     }
+
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

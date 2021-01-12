@@ -32,9 +32,13 @@ public class CrearTareaServlet extends HttpServlet {
         Usuario user = (Usuario) req.getSession().getAttribute("usuario");
 
         if (user != null && desc.trim().length() > 0) {
-            DB.crearTarea(user.getUsername(), desc);
-            //mensaje successful (puede que los meta en "mensaje" y ya, no se)
-            req.setAttribute("mensajeS", "Tarea creada"); 
+            if (desc.trim().length() <= 30){
+                DB.crearTarea(user.getUsername(), desc);
+                //mensaje successful (puede que los meta en "mensaje" y ya, no se)
+                req.setAttribute("mensajeS", "Tarea creada");
+            }else{
+                req.setAttribute("mensajeE", "No se pudo crear la tarea por exceso de caracteres");
+            }
         }else{
             //mensaje error
             req.setAttribute("mensajeE", "No se pudo crear la tarea.");
@@ -42,7 +46,6 @@ public class CrearTareaServlet extends HttpServlet {
 
         //redireccionar
         resp.sendRedirect("tablero");
-
 
         
     }

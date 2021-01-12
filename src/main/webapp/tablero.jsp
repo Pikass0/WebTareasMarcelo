@@ -17,6 +17,7 @@
     </head>
     <body>
     <%@include file="WEB-INF/fragmentos/includes-body.jspf" %>
+    <b>(Eliminar tarea funciona pero a veces da error 500 (aunque al refrescar, se ve que sí se borró))</b>
     <c:choose>
         <c:when test="${sessionScope.usuario == null}">
             <div class="aler alert-danger" role="alert">
