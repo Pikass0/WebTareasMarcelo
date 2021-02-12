@@ -4,6 +4,7 @@
 
 
 <!-- PROJECT SHIELDS -->
+![language-shield]
 ![release-shield]
 [![Contributors][contributors-shield]][contributors-url] 
 [![Issues][issues-shield]][issues-url]
@@ -130,6 +131,8 @@ Si quieres contribuir:
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
+[language-shield]: https://img.shields.io/badge/language-black?style=flat&logo=java
+
 [discord-shield]: https://img.shields.io/badge/chat-on%20discord-7289da.svg?style=flat&logo=discord
 [discord-url]: https://www.discord.com/users/290575161869205504
 [release-shield]: https://img.shields.io/badge/release%20date-Dec%202020-lightgrey
@@ -137,7 +140,7 @@ Si quieres contribuir:
 [contributors-url]: https://github.com/Pikass0/WebTareasMarcelo/graphs/contributors
 [issues-shield]: https://img.shields.io/github/issues-raw/Pikass0/WebTareasMarcelo?color=orange
 [issues-url]: https://github.com/Pikass0/WebTareasMarcelo/issues
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat&logo=linkedin&color=blue
-[linkedin-url]: https://www.linkedin.com/in/marcelo-toral-martínez-573735176/
+
+
 [menu-ss]: /fotosReadme/readme1.jpg
 [tablero-ss]: /fotosReadme/readme2.jpg
